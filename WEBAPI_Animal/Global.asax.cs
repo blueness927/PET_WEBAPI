@@ -18,6 +18,9 @@ namespace WEBAPI_Animal
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
+            GlobalConfiguration.Configuration.IncludeErrorDetailPolicy=IncludeErrorDetailPolicy.Always;
+
         }
     }
 }

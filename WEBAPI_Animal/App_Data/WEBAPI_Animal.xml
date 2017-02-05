@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WEBAPI_Animal</name>
+    </assembly>
+    <members>
+        <member name="M:WEBAPI_Animal.Controllers.v1.animalDatasController.GetanimalData">
+            <summary>
+            取得所有動物資料(支援Odata)
+            </summary>
+            <returns>IQueryable &lt; Animal&gt;.</returns>
+        </member>
+        <member name="M:WEBAPI_Animal.Controllers.v1.animalDatasController.GetanimalData(System.Int32)">
+            <summary>
+            取得單筆動物資料
+            </summary>
+            <param name="id">The identifier</param>
+            <returns>IHttpActionResult.</returns>
+        </member>
+        <member name="M:WEBAPI_Animal.Controllers.v1.animalDatasController.PutanimalData(System.Int32,WEBAPI_Animal.Models.animalData)">
+            <summary>
+            修改單筆動物資料(只能修改animalData的內容)
+            </summary>
+            <param name="id"></param>
+            <param name="animalData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WEBAPI_Animal.Controllers.v1.animalDatasController.PostanimalData(WEBAPI_Animal.Models.animalData)">
+            <summary>
+            新增一筆動物資料(可同時新增圖片及送養資料)
+            </summary>
+            <param name="animalData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WEBAPI_Animal.Controllers.v1.animalDatasController.DeleteanimalData(System.Int32)">
+            <summary>
+            刪除單一筆動物資料
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WEBAPI_Animal.Controllers.v1.animalData_ConditionController.GetanimalData_Condition">
+             <summary>
+             取得所有動物資料
+             </summary>
+             <returns>IQueryable &lt; Animal&gt;.</returns>
+            GET: api/v1/AnimalDatas
+        </member>
+        <member name="M:WEBAPI_Animal.Controllers.v1.animalData_PicController.GetanimalData_Pic">
+            <summary>
+            取得所有PIC資料(不含動物資料)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WEBAPI_Animal.Controllers.v1.animalData_PicController.GetanimalData_Pic(System.Int32)">
+            <summary>
+            以animalPic_animalID為主要搜尋ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WEBAPI_Animal.Controllers.v1.animalData_PicController.PutanimalData_Pic(System.Int32,WEBAPI_Animal.Models.animalData_Pic)">
+            <summary>
+            以animalPicID為主要修改ID
+            </summary>
+            <param name="id"></param>
+            <param name="animalData_Pic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WEBAPI_Animal.Controllers.v1.animalData_PicController.PostanimalData_Pic(WEBAPI_Animal.Models.animalData_Pic)">
+            <summary>
+            新增資料時，animalPic_animalID需自行將ID帶入
+            </summary>
+            <param name="animalData_Pic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WEBAPI_Animal.Controllers.v1.animalData_PicController.DeleteanimalData_Pic(System.Int32)">
+            <summary>
+            以animalPicID為主要ID
+            要刪除資料時，請先紀錄該動物的id去做對應刪除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -10,11 +10,14 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using WEBAPI_Animal.Providers;
 using WEBAPI_Animal.Models;
+using Microsoft.Owin.Security.Facebook;
+using WEBAPI_Animal.Controllers;
 
 namespace WEBAPI_Animal
 {
     public partial class Startup
     {
+        public static FacebookAuthenticationOptions facebookAuthOptions { get; private set; }
         public static OAuthAuthorizationServerOptions OAuthOptions { get; private set; }
 
         public static string PublicClientId { get; private set; }
@@ -55,10 +58,19 @@ namespace WEBAPI_Animal
             //    consumerKey: "",
             //    consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //    appId: "",
-            //    appSecret: "");
+            //app.usefacebookauthentication(
+            //    appid: "2710370952435487",
+            //    appsecret: "68d6fd3c88655109693fb23aaca60408");
 
+
+            facebookAuthOptions = new FacebookAuthenticationOptions()
+            {
+
+                AppId = "",
+                AppSecret = "",
+          
+            };
+            
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
             //    ClientId = "",
