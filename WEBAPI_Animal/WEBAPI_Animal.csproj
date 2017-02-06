@@ -356,6 +356,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AnimalModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Images\nopic4.png" />
     <Content Include="Models\AnimalModel.edmx.diagram">
       <DependentUpon>AnimalModel.edmx</DependentUpon>
     </Content>
