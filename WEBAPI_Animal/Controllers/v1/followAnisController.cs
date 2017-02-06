@@ -14,14 +14,24 @@ namespace WEBAPI_Animal.Controllers.v1
 {
     public class followAnisController : BaseController
     {
-      
+        /// <summary>
+        /// 一次取得所有會員的追蹤清單
+        /// PS.請無視testid的欄位值
+        /// </summary>
+        /// <returns></returns>
         // GET: api/followAnis
         public IQueryable<followAni> GetfollowAni()
         {
             return db.followAni;
         }
 
-        // GET: api/followAnis/5
+        /// <summary>
+        /// 取得單一會員的追蹤清單
+        /// 範例：api/v1/followAnis/0cee9178-0b2d-42e9-859d-cf061e4750f3
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        // GET: api/followAnis/userid
         [ResponseType(typeof(followAni))]
         public IHttpActionResult GetfollowAni(string id)
         {
@@ -34,41 +44,11 @@ namespace WEBAPI_Animal.Controllers.v1
             return Ok(followAni);
         }
 
-        // PUT: api/follows/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult Putfollow(string id, follow follow)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != follow.follow_userId)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(follow).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!followExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
+        /// <summary>
+        /// 新增一筆要追蹤的動物，userid及animalid已綁fk,若填入的值無法對應，則無法做新增
+        /// </summary>
+        /// <param name="follow"></param>
+        /// <returns></returns>
         // POST: api/follows
         [ResponseType(typeof(follow))]
         public IHttpActionResult Postfollow(follow follow)
@@ -99,6 +79,11 @@ namespace WEBAPI_Animal.Controllers.v1
             return CreatedAtRoute("Apiv1", new { id = follow.follow_userId }, follow);
         }
 
+        /// <summary>
+        /// 刪除一筆追蹤的資料，以follow ID為主鍵，故刪除時須先取得對應的id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE: api/followsAni/5
         [ResponseType(typeof(follow))]
         public IHttpActionResult Deletefollow(int id)
