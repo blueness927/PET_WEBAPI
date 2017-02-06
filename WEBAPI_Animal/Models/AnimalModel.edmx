@@ -1533,6 +1533,7 @@
             <PropertyRef Name="followID" />
           </Key>
           <Property Name="testID" Type="Int32" Nullable="false" />
+          <Property Name="followID" Type="Int32" Nullable="false" />
           <Property Name="follow_userId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="animalID" Type="Int32" Nullable="false" />
           <Property Name="animalName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -1544,7 +1545,6 @@
           <Property Name="animalAge" Type="Int32" />
           <Property Name="animalOwner_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="followID" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK__follow__follow_u__0C50D423">
           <End Type="petstationModel.AspNetUsers" Role="AspNetUsers" Multiplicity="0..1">

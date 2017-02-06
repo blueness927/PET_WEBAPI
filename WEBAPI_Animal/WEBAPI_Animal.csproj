@@ -214,7 +214,6 @@
     <Compile Include="Controllers\v1\animalData_PicController.cs" />
     <Compile Include="Controllers\v1\animalData_TypeController.cs" />
     <Compile Include="Controllers\v1\followAnisController.cs" />
-    <Compile Include="Controllers\v1\followsController.cs" />
     <Compile Include="Controllers\v1\MsgUsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">

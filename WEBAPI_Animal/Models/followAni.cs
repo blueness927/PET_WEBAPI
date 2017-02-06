@@ -15,6 +15,7 @@ namespace WEBAPI_Animal.Models
     public partial class followAni
     {
         public int testID { get; set; }
+        public int followID { get; set; }
         public string follow_userId { get; set; }
         public int animalID { get; set; }
         public string animalName { get; set; }
@@ -26,6 +27,5 @@ namespace WEBAPI_Animal.Models
         public Nullable<int> animalAge { get; set; }
         public string animalOwner_userID { get; set; }
         public string animalPicAddress { get; set; }
-        public int followID { get; set; }
     }
 }

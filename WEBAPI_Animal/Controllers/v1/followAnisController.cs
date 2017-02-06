@@ -99,21 +99,21 @@ namespace WEBAPI_Animal.Controllers.v1
             return CreatedAtRoute("Apiv1", new { id = follow.follow_userId }, follow);
         }
 
-        //// DELETE: api/followsAni/5
-        //[ResponseType(typeof(follow))]
-        //public IHttpActionResult Deletefollow(int id)
-        //{
-        //    var follow = db.follow.Where(x => x.follow_animalID==id).ToList();
-        //    if (follow == null)
-        //    {
-        //        return NotFound();
-        //    }
+        // DELETE: api/followsAni/5
+        [ResponseType(typeof(follow))]
+        public IHttpActionResult Deletefollow(int id)
+        {
+            follow follow = db.follow.Find(id);
+            if (follow == null)
+            {
+                return NotFound();
+            }
 
-        //    db.follow.Remove(follow);
-        //    db.SaveChanges();
+            db.follow.Remove(follow);
+            db.SaveChanges();
 
-        //    return Ok(follow);
-        //}
+            return Ok(follow);
+        }
 
         protected override void Dispose(bool disposing)
         {
