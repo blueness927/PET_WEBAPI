@@ -56,6 +56,16 @@ namespace WEBAPI_Animal.Models
         [Required]
         [Display(Name = "電子郵件")]
         public string Email { get; set; }
+
+        [Required]
+        public string UserName { get; set; }
+
+        [Required]
+        public string Provider { get; set; }
+
+        [Required]
+        public string ExternalAccessToken { get; set; }
+
     }
 
     public class RemoveLoginBindingModel

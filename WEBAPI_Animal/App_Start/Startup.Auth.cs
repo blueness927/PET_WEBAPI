@@ -66,9 +66,10 @@ namespace WEBAPI_Animal
             facebookAuthOptions = new FacebookAuthenticationOptions()
             {
 
-                AppId = "",
-                AppSecret = "",
-          
+                AppId = "208269922976554",
+                AppSecret = "20dbe805f01805bf6287d926999da83f",
+                Provider = new FacebookAuthProvider()
+
             };
             
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()

@@ -48,4 +48,5 @@ namespace WEBAPI_Animal.Models
 
         public string ProviderKey { get; set; }
     }
+
 }

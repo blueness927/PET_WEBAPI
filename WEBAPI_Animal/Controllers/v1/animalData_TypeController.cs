@@ -15,13 +15,21 @@ namespace WEBAPI_Animal.Controllers.v1
     public class animalData_TypeController : BaseController
     {
       
-
+        /// <summary>
+        /// 取得全部
+        /// </summary>
+        /// <returns></returns>
         // GET: api/animalData_Type
         public IQueryable<animalData_Type> GetanimalData_Type()
         {
             return db.animalData_Type;
         }
 
+        /// <summary>
+        /// 取得單一筆資料
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/animalData_Type/5
         [ResponseType(typeof(animalData_Type))]
         public IHttpActionResult GetanimalData_Type(int id)
@@ -35,41 +43,12 @@ namespace WEBAPI_Animal.Controllers.v1
             return Ok(animalData_Type);
         }
 
-        // PUT: api/animalData_Type/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutanimalData_Type(int id, animalData_Type animalData_Type)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != animalData_Type.animalTypeID)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(animalData_Type).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!animalData_TypeExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
+       
+        /// <summary>
+        /// 新增單筆
+        /// </summary>
+        /// <param name="animalData_Type"></param>
+        /// <returns></returns>
         // POST: api/animalData_Type
         [ResponseType(typeof(animalData_Type))]
         public IHttpActionResult PostanimalData_Type(animalData_Type animalData_Type)
@@ -82,9 +61,14 @@ namespace WEBAPI_Animal.Controllers.v1
             db.animalData_Type.Add(animalData_Type);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = animalData_Type.animalTypeID }, animalData_Type);
+            return CreatedAtRoute("Apiv1", new { id = animalData_Type.animalTypeID }, animalData_Type);
         }
 
+        /// <summary>
+        /// 刪除單筆
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE: api/animalData_Type/5
         [ResponseType(typeof(animalData_Type))]
         public IHttpActionResult DeleteanimalData_Type(int id)
