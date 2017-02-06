@@ -60,7 +60,7 @@
           </Key>
           <Property Name="animalPicID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="animalPic_animalID" Type="int" />
-          <Property Name="animalPicAddress" Type="nvarchar" MaxLength="200" />
+          <Property Name="animalPicAddress" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="animalData_Type">
           <Key>
@@ -140,11 +140,11 @@
         </EntityType>
         <EntityType Name="follow">
           <Key>
-            <PropertyRef Name="follow_userId" />
-            <PropertyRef Name="follow_animalID" />
+            <PropertyRef Name="followID" />
           </Key>
-          <Property Name="follow_userId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="follow_animalID" Type="int" Nullable="false" />
+          <Property Name="followID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="follow_userId" Type="nvarchar" MaxLength="128" />
+          <Property Name="follow_animalID" Type="int" />
         </EntityType>
         <EntityType Name="forum">
           <Key>
@@ -354,6 +354,28 @@
           <Property Name="animalPicAddress" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'petstation.dbo.followAni' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="followAni">
+          <Key>
+            <PropertyRef Name="testID" />
+            <PropertyRef Name="animalID" />
+            <PropertyRef Name="followID" />
+          </Key>
+          <Property Name="testID" Type="int" Nullable="false" />
+          <Property Name="follow_userId" Type="nvarchar" MaxLength="128" />
+          <Property Name="animalID" Type="int" Nullable="false" />
+          <Property Name="animalName" Type="nvarchar" MaxLength="50" />
+          <Property Name="animalKind" Type="nvarchar" MaxLength="50" />
+          <Property Name="animalType" Type="nvarchar" MaxLength="50" />
+          <Property Name="animalColor" Type="nvarchar" MaxLength="50" />
+          <Property Name="animalGender" Type="nvarchar" MaxLength="50" />
+          <Property Name="animalAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="animalAge" Type="int" />
+          <Property Name="animalOwner_userID" Type="nvarchar" MaxLength="128" />
+          <Property Name="animalPicAddress" Type="nvarchar" MaxLength="200" />
+          <Property Name="followID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--產生期間發現錯誤:
 警告 6002: 資料表/檢視 'petstation.dbo.MsgUser' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
         <EntityType Name="MsgUser">
           <Key>
@@ -438,8 +460,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__follow__follow_u__5BAD9CC8">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+        <Association Name="FK__follow__follow_u__0C50D423">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="follow" Type="Self.follow" Multiplicity="*" />
@@ -731,6 +753,23 @@
     [aniDataPicOne].[animalPicAddress] AS [animalPicAddress]
     FROM [dbo].[aniDataPicOne] AS [aniDataPicOne]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="followAni" EntityType="Self.followAni" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [followAni].[testID] AS [testID], 
+    [followAni].[follow_userId] AS [follow_userId], 
+    [followAni].[animalID] AS [animalID], 
+    [followAni].[animalName] AS [animalName], 
+    [followAni].[animalKind] AS [animalKind], 
+    [followAni].[animalType] AS [animalType], 
+    [followAni].[animalColor] AS [animalColor], 
+    [followAni].[animalGender] AS [animalGender], 
+    [followAni].[animalAddress] AS [animalAddress], 
+    [followAni].[animalAge] AS [animalAge], 
+    [followAni].[animalOwner_userID] AS [animalOwner_userID], 
+    [followAni].[animalPicAddress] AS [animalPicAddress], 
+    [followAni].[followID] AS [followID]
+    FROM [dbo].[followAni] AS [followAni]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="MsgUser" EntityType="Self.MsgUser" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [MsgUser].[msgID] AS [msgID], 
@@ -764,7 +803,7 @@
             <End Role="board" EntitySet="board" />
             <End Role="board_reply" EntitySet="board_reply" />
           </AssociationSet>
-          <AssociationSet Name="FK__follow__follow_u__5BAD9CC8" Association="Self.FK__follow__follow_u__5BAD9CC8">
+          <AssociationSet Name="FK__follow__follow_u__0C50D423" Association="Self.FK__follow__follow_u__0C50D423">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="follow" EntitySet="follow" />
           </AssociationSet>
@@ -891,7 +930,7 @@
           </Key>
           <Property Name="animalPicID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="animalPic_animalID" Type="Int32" />
-          <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="animalData" Relationship="Self.FK__animalDat__anima__32AB8735" FromRole="animalData_Pic" ToRole="animalData" />
         </EntityType>
         <EntityType Name="animalData_Type">
@@ -950,7 +989,6 @@
           <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="board" Relationship="Self.FK__board__board_use__40F9A68C" FromRole="AspNetUsers" ToRole="board" />
-          <NavigationProperty Name="follow" Relationship="Self.FK__follow__follow_u__5BAD9CC8" FromRole="AspNetUsers" ToRole="follow" />
           <NavigationProperty Name="forum" Relationship="Self.FK__forum__forum_use__4A8310C6" FromRole="AspNetUsers" ToRole="forum" />
           <NavigationProperty Name="remind" Relationship="Self.FK__remind__remind_u__5224328E" FromRole="AspNetUsers" ToRole="remind" />
           <NavigationProperty Name="search" Relationship="Self.FK__search__Search_u__4F47C5E3" FromRole="AspNetUsers" ToRole="search" />
@@ -958,6 +996,7 @@
           <NavigationProperty Name="animalData" Relationship="Self.giveAnimal" FromRole="AspNetUsers" ToRole="animalData" />
           <NavigationProperty Name="animalData1" Relationship="Self.pair" FromRole="AspNetUsers" ToRole="animalData" />
           <NavigationProperty Name="Msg" Relationship="petstationModel.FK__Msg__msgTo_userI__7D0E9093" FromRole="AspNetUsers" ToRole="Msg" />
+          <NavigationProperty Name="follow" Relationship="petstationModel.FK__follow__follow_u__0C50D423" FromRole="AspNetUsers" ToRole="follow" />
         </EntityType>
         <EntityType Name="board">
           <Key>
@@ -979,15 +1018,6 @@
           <Property Name="reply_boardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="replyToboardID" Type="Int32" />
           <NavigationProperty Name="board" Relationship="Self.FK__board_rep__reply__6CD828CA" FromRole="board_reply" ToRole="board" />
-        </EntityType>
-        <EntityType Name="follow">
-          <Key>
-            <PropertyRef Name="follow_userId" />
-            <PropertyRef Name="follow_animalID" />
-          </Key>
-          <Property Name="follow_userId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="follow_animalID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__follow__follow_u__5BAD9CC8" FromRole="follow" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="forum">
           <Key>
@@ -1205,20 +1235,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__follow__follow_u__5BAD9CC8">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="follow" Type="Self.follow" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="follow">
-              <PropertyRef Name="follow_userId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__forum__forum_use__4A8310C6">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -1313,7 +1329,6 @@
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
           <EntitySet Name="board" EntityType="Self.board" />
           <EntitySet Name="board_reply" EntityType="Self.board_reply" />
-          <EntitySet Name="follow" EntityType="Self.follow" />
           <EntitySet Name="forum" EntityType="Self.forum" />
           <EntitySet Name="forum_reply" EntityType="Self.forum_reply" />
           <EntitySet Name="map" EntityType="Self.map" />
@@ -1352,10 +1367,6 @@
           <AssociationSet Name="FK__board__board_use__40F9A68C" Association="Self.FK__board__board_use__40F9A68C">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="board" EntitySet="board" />
-          </AssociationSet>
-          <AssociationSet Name="FK__follow__follow_u__5BAD9CC8" Association="Self.FK__follow__follow_u__5BAD9CC8">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="follow" EntitySet="follow" />
           </AssociationSet>
           <AssociationSet Name="FK__forum__forum_use__4A8310C6" Association="Self.FK__forum__forum_use__4A8310C6">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -1397,6 +1408,12 @@
           <AssociationSet Name="FK__Msg__msgTo_userI__7D0E9093" Association="petstationModel.FK__Msg__msgTo_userI__7D0E9093">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Msg" EntitySet="Msg" />
+          </AssociationSet>
+          <EntitySet Name="follow" EntityType="petstationModel.follow" />
+          <EntitySet Name="followAni" EntityType="petstationModel.followAni" />
+          <AssociationSet Name="FK__follow__follow_u__0C50D423" Association="petstationModel.FK__follow__follow_u__0C50D423">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="follow" EntitySet="follow" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="aniDataAll">
@@ -1497,6 +1514,49 @@
             </Principal>
             <Dependent Role="Msg">
               <PropertyRef Name="msgTo_userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="follow">
+          <Key>
+            <PropertyRef Name="followID" />
+          </Key>
+          <Property Name="followID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="follow_userId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="follow_animalID" Type="Int32" />
+          <NavigationProperty Name="AspNetUsers" Relationship="petstationModel.FK__follow__follow_u__0C50D423" FromRole="follow" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="followAni">
+          <Key>
+            <PropertyRef Name="testID" />
+            <PropertyRef Name="animalID" />
+            <PropertyRef Name="followID" />
+          </Key>
+          <Property Name="testID" Type="Int32" Nullable="false" />
+          <Property Name="follow_userId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="animalID" Type="Int32" Nullable="false" />
+          <Property Name="animalName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalKind" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalAge" Type="Int32" />
+          <Property Name="animalOwner_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="followID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__follow__follow_u__0C50D423">
+          <End Type="petstationModel.AspNetUsers" Role="AspNetUsers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="petstationModel.follow" Role="follow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="follow">
+              <PropertyRef Name="follow_userId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1636,14 +1696,6 @@
               <MappingFragment StoreEntitySet="board_reply">
                 <ScalarProperty Name="reply_boardID" ColumnName="reply_boardID" />
                 <ScalarProperty Name="replyToboardID" ColumnName="replyToboardID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="follow">
-            <EntityTypeMapping TypeName="petstationModel.follow">
-              <MappingFragment StoreEntitySet="follow">
-                <ScalarProperty Name="follow_userId" ColumnName="follow_userId" />
-                <ScalarProperty Name="follow_animalID" ColumnName="follow_animalID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1882,6 +1934,34 @@
                 <ScalarProperty Name="msgFrom_userID" ColumnName="msgFrom_userID" />
                 <ScalarProperty Name="msgTime" ColumnName="msgTime" />
                 <ScalarProperty Name="msgID" ColumnName="msgID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="follow">
+            <EntityTypeMapping TypeName="petstationModel.follow">
+              <MappingFragment StoreEntitySet="follow">
+                <ScalarProperty Name="follow_animalID" ColumnName="follow_animalID" />
+                <ScalarProperty Name="follow_userId" ColumnName="follow_userId" />
+                <ScalarProperty Name="followID" ColumnName="followID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="followAni">
+            <EntityTypeMapping TypeName="petstationModel.followAni">
+              <MappingFragment StoreEntitySet="followAni">
+                <ScalarProperty Name="followID" ColumnName="followID" />
+                <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
+                <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
+                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
+                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
+                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
+                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
+                <ScalarProperty Name="animalType" ColumnName="animalType" />
+                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
+                <ScalarProperty Name="animalName" ColumnName="animalName" />
+                <ScalarProperty Name="animalID" ColumnName="animalID" />
+                <ScalarProperty Name="follow_userId" ColumnName="follow_userId" />
+                <ScalarProperty Name="testID" ColumnName="testID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

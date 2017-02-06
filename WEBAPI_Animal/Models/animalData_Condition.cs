@@ -24,7 +24,7 @@ namespace WEBAPI_Animal.Models
         public string conditionPaper { get; set; }
         public string conditionFee { get; set; }
         public string conditionOther { get; set; }
-        
+    
         public virtual animalData animalData { get; set; }
     }
 }

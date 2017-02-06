@@ -6,6 +6,7 @@ using System.Web;
 
 namespace WEBAPI_Animal.Models
 {
+    #pragma warning disable 1591
     public class RegisterExternalTokenBindingModel
     {
         [Required]

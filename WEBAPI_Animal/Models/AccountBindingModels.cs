@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 
 namespace WEBAPI_Animal.Models
 {
+    #pragma warning disable 1591
     // 作為 AccountController 動作之參數的模型。
 
     public class AddExternalLoginBindingModel

@@ -213,6 +213,8 @@
     <Compile Include="Controllers\v1\animalData_ConditionController.cs" />
     <Compile Include="Controllers\v1\animalData_PicController.cs" />
     <Compile Include="Controllers\v1\animalData_TypeController.cs" />
+    <Compile Include="Controllers\v1\followAnisController.cs" />
+    <Compile Include="Controllers\v1\followsController.cs" />
     <Compile Include="Controllers\v1\MsgUsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -280,6 +282,9 @@
     <Compile Include="Models\follow.cs">
       <DependentUpon>AnimalModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\followAni.cs">
+      <DependentUpon>AnimalModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\forum.cs">
       <DependentUpon>AnimalModel.tt</DependentUpon>
     </Compile>
@@ -299,6 +304,7 @@
     <Compile Include="Models\Partials\animalData_Condition.cs" />
     <Compile Include="Models\Partials\animalData.cs" />
     <Compile Include="Models\Partials\animalData_Pic.cs" />
+    <Compile Include="Models\Partials\follow.cs" />
     <Compile Include="Models\Partials\Msg.cs" />
     <Compile Include="Models\petFAQ.cs">
       <DependentUpon>AnimalModel.tt</DependentUpon>

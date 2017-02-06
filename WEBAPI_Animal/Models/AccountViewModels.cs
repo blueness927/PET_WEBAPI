@@ -4,7 +4,9 @@ using System.Collections.Generic;
 namespace WEBAPI_Animal.Models
 {
     // AccountController 動作所傳回的模型。
-
+    /// <summary>
+    /// 
+    /// </summary>
     public class ExternalLoginViewModel
     {
         public string Name { get; set; }
@@ -13,7 +15,9 @@ namespace WEBAPI_Animal.Models
 
         public string State { get; set; }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public class ManageInfoViewModel
     {
         public string LocalLoginProvider { get; set; }
@@ -24,7 +28,9 @@ namespace WEBAPI_Animal.Models
 
         public IEnumerable<ExternalLoginViewModel> ExternalLoginProviders { get; set; }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public class UserInfoViewModel
     {
         public string Email { get; set; }
@@ -33,7 +39,9 @@ namespace WEBAPI_Animal.Models
 
         public string LoginProvider { get; set; }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public class UserLoginInfoViewModel
     {
         public string LoginProvider { get; set; }

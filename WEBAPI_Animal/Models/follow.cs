@@ -14,8 +14,9 @@ namespace WEBAPI_Animal.Models
     
     public partial class follow
     {
+        public int followID { get; set; }
         public string follow_userId { get; set; }
-        public int follow_animalID { get; set; }
+        public Nullable<int> follow_animalID { get; set; }
     
         public virtual AspNetUsers AspNetUsers { get; set; }
     }

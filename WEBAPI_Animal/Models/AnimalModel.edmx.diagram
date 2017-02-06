@@ -16,7 +16,6 @@
         <EntityTypeShape EntityType="petstationModel.AspNetUsers" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
         <EntityTypeShape EntityType="petstationModel.board" Width="1.5" PointX="7.5" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="petstationModel.board_reply" Width="1.5" PointX="9.75" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="petstationModel.follow" Width="1.5" PointX="5.25" PointY="20.25" IsExpanded="true" />
         <EntityTypeShape EntityType="petstationModel.forum" Width="1.5" PointX="5.25" PointY="22.5" IsExpanded="true" />
         <EntityTypeShape EntityType="petstationModel.forum_reply" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="petstationModel.map" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
@@ -35,7 +34,6 @@
         <AssociationConnector Association="petstationModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="petstationModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="petstationModel.FK__board__board_use__40F9A68C" ManuallyRouted="false" />
-        <AssociationConnector Association="petstationModel.FK__follow__follow_u__5BAD9CC8" ManuallyRouted="false" />
         <AssociationConnector Association="petstationModel.FK__forum__forum_use__4A8310C6" ManuallyRouted="false" />
         <AssociationConnector Association="petstationModel.FK__remind__remind_u__5224328E" ManuallyRouted="false" />
         <AssociationConnector Association="petstationModel.FK__search__Search_u__4F47C5E3" ManuallyRouted="false" />
@@ -50,6 +48,9 @@
         <EntityTypeShape EntityType="petstationModel.Msg" Width="1.5" PointX="5.25" PointY="34.625" />
         <EntityTypeShape EntityType="petstationModel.MsgUser" Width="1.5" PointX="13.375" PointY="0.75" />
         <AssociationConnector Association="petstationModel.FK__Msg__msgTo_userI__7D0E9093" />
+        <EntityTypeShape EntityType="petstationModel.follow" Width="1.5" PointX="5.25" PointY="17.125" />
+        <EntityTypeShape EntityType="petstationModel.followAni" Width="1.5" PointX="15.375" PointY="0.75" />
+        <AssociationConnector Association="petstationModel.FK__follow__follow_u__0C50D423" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

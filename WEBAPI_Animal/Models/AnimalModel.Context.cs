@@ -36,7 +36,6 @@ namespace WEBAPI_Animal.Models
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<board> board { get; set; }
         public virtual DbSet<board_reply> board_reply { get; set; }
-        public virtual DbSet<follow> follow { get; set; }
         public virtual DbSet<forum> forum { get; set; }
         public virtual DbSet<forum_reply> forum_reply { get; set; }
         public virtual DbSet<map> map { get; set; }
@@ -53,5 +52,7 @@ namespace WEBAPI_Animal.Models
         public virtual DbSet<aniDataPicOne> aniDataPicOne { get; set; }
         public virtual DbSet<Msg> Msg { get; set; }
         public virtual DbSet<MsgUser> MsgUser { get; set; }
+        public virtual DbSet<follow> follow { get; set; }
+        public virtual DbSet<followAni> followAni { get; set; }
     }
 }

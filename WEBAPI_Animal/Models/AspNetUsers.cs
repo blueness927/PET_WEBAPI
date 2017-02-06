@@ -20,7 +20,6 @@ namespace WEBAPI_Animal.Models
             this.AspNetUserClaims = new HashSet<AspNetUserClaims>();
             this.AspNetUserLogins = new HashSet<AspNetUserLogins>();
             this.board = new HashSet<board>();
-            this.follow = new HashSet<follow>();
             this.forum = new HashSet<forum>();
             this.remind = new HashSet<remind>();
             this.search = new HashSet<search>();
@@ -28,6 +27,7 @@ namespace WEBAPI_Animal.Models
             this.animalData = new HashSet<animalData>();
             this.animalData1 = new HashSet<animalData>();
             this.Msg = new HashSet<Msg>();
+            this.follow = new HashSet<follow>();
         }
     
         public string Id { get; set; }
@@ -50,8 +50,6 @@ namespace WEBAPI_Animal.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<board> board { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<follow> follow { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<forum> forum { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<remind> remind { get; set; }
@@ -65,5 +63,7 @@ namespace WEBAPI_Animal.Models
         public virtual ICollection<animalData> animalData1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Msg> Msg { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<follow> follow { get; set; }
     }
 }
