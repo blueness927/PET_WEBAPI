@@ -10,8 +10,10 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using WEBAPI_Animal.Models;
 
+
 namespace WEBAPI_Animal.Controllers.v1
 {
+    
     public class animalDatasController : BaseController
     {
         /// <summary>
@@ -35,7 +37,7 @@ namespace WEBAPI_Animal.Controllers.v1
         /// <param name="id">The identifier</param>
         /// <returns>IHttpActionResult.</returns>
         // GET: api/animalDatas/5
-        
+        [Queryable]
         [ResponseType(typeof(animalData))]
         public IHttpActionResult GetanimalData(int id)
         {
@@ -53,6 +55,8 @@ namespace WEBAPI_Animal.Controllers.v1
 
             return Ok(animal);
         }
+
+
         /// <summary>
         /// 修改單筆動物資料(只能修改animalData的內容)
         /// </summary>

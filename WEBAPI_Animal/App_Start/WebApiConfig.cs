@@ -16,6 +16,7 @@ namespace WEBAPI_Animal
             // 將 Web API 設定成僅使用 bearer 權杖驗證。
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+            config.EnableCors();
 
             // Web API 路由
             config.MapHttpAttributeRoutes();
