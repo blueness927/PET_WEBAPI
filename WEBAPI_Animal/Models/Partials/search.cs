@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace WEBAPI_Animal.Models.Partials
+namespace WEBAPI_Animal.Models
 {
     [MetadataType(typeof(searchMD))]
     public partial class search
