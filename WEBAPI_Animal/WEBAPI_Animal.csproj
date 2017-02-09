@@ -223,6 +223,7 @@
     <Compile Include="Controllers\v1\animalData_TypeController.cs" />
     <Compile Include="Controllers\v1\boardsController.cs" />
     <Compile Include="Controllers\v1\followAnisController.cs" />
+    <Compile Include="Controllers\v1\mapsController.cs" />
     <Compile Include="Controllers\v1\MsgUsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
