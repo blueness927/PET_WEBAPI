@@ -12,13 +12,14 @@ namespace WEBAPI_Animal.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class follow
+    public partial class boardUser
     {
-        public int followID { get; set; }
-        public string follow_userId { get; set; }
-        public Nullable<int> follow_animalID { get; set; }
-    
-        public virtual AspNetUsers AspNetUsers { get; set; }
-        public virtual animalData animalData { get; set; }
+        public int boardID { get; set; }
+        public string boardTime { get; set; }
+        public string board_userID { get; set; }
+        public string UserName { get; set; }
+        public string Email { get; set; }
+        public Nullable<int> board_animalID { get; set; }
+        public string boardContent { get; set; }
     }
 }

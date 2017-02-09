@@ -54,5 +54,6 @@ namespace WEBAPI_Animal.Models
         public virtual DbSet<MsgUser> MsgUser { get; set; }
         public virtual DbSet<follow> follow { get; set; }
         public virtual DbSet<followAni> followAni { get; set; }
+        public virtual DbSet<boardUser> boardUser { get; set; }
     }
 }

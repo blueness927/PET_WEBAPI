@@ -23,6 +23,7 @@ namespace WEBAPI_Animal.Models
             this.petTodo = new HashSet<petTodo>();
             this.AspNetUsers = new HashSet<AspNetUsers>();
             this.AspNetUsers1 = new HashSet<AspNetUsers>();
+            this.follow = new HashSet<follow>();
         }
     
         public int animalID { get; set; }
@@ -57,5 +58,7 @@ namespace WEBAPI_Animal.Models
         public virtual ICollection<AspNetUsers> AspNetUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetUsers> AspNetUsers1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<follow> follow { get; set; }
     }
 }

@@ -51,6 +51,8 @@
         <EntityTypeShape EntityType="petstationModel.follow" Width="1.5" PointX="5.25" PointY="17.125" />
         <EntityTypeShape EntityType="petstationModel.followAni" Width="1.5" PointX="15.375" PointY="0.75" />
         <AssociationConnector Association="petstationModel.FK__follow__follow_u__0C50D423" />
+        <EntityTypeShape EntityType="petstationModel.boardUser" Width="1.5" PointX="7.375" PointY="15.75" />
+        <AssociationConnector Association="petstationModel.FK__follow__follow_a__16CE6296" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
