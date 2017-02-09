@@ -36,7 +36,7 @@ namespace WEBAPI_Animal.Models
             public virtual ICollection<animalData_Pic> animalData_Pic { get; set; }
           
             public virtual ICollection<animalData_Condition> animalData_Condition { get; set; }
-            [JsonIgnore]
+            
             public virtual ICollection<board> board { get; set; }
             [JsonIgnore]
             public virtual ICollection<petTodo> petTodo { get; set; }
@@ -44,6 +44,8 @@ namespace WEBAPI_Animal.Models
             public virtual ICollection<AspNetUsers> AspNetUsers { get; set; }
             [JsonIgnore]
             public virtual ICollection<AspNetUsers> AspNetUsers1 { get; set; }
+            [JsonIgnore]
+            public virtual ICollection<follow> follow { get; set; }
         }
     }
 

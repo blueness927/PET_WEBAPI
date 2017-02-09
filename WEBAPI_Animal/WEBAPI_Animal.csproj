@@ -225,6 +225,7 @@
     <Compile Include="Controllers\v1\followAnisController.cs" />
     <Compile Include="Controllers\v1\mapsController.cs" />
     <Compile Include="Controllers\v1\MsgUsersController.cs" />
+    <Compile Include="Controllers\v1\searchesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -320,6 +321,7 @@
     <Compile Include="Models\Partials\board.cs" />
     <Compile Include="Models\Partials\follow.cs" />
     <Compile Include="Models\Partials\Msg.cs" />
+    <Compile Include="Models\Partials\search.cs" />
     <Compile Include="Models\petFAQ.cs">
       <DependentUpon>AnimalModel.tt</DependentUpon>
     </Compile>

@@ -27,6 +27,7 @@ namespace WEBAPI_Animal.Controllers.v1
             db.Configuration.ProxyCreationEnabled = false;
             var animal = db.animalData.Include(p => p.animalData_Pic)
                                      .Include(c => c.animalData_Condition)
+                                     .Include(b=>b.board)
                                     .AsQueryable();
 
             
@@ -48,6 +49,7 @@ namespace WEBAPI_Animal.Controllers.v1
 
             var animal = db.animalData.Include(p => p.animalData_Pic)
                                       .Include(c => c.animalData_Condition)
+                                      .Include(b => b.board)
                                       .AsQueryable().FirstOrDefault(r => r.animalID == id);
 
             if (animal == null)

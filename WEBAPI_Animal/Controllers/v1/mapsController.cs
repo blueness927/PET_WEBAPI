@@ -12,9 +12,9 @@ using WEBAPI_Animal.Models;
 
 namespace WEBAPI_Animal.Controllers.v1
 {
-    public class mapsController : ApiController
+    public class mapsController : BaseController
     {
-        private petstationEntities db = new petstationEntities();
+        
         /// <summary>
         /// 取得全部動物醫院詳細位置資料
         /// </summary>
@@ -25,7 +25,7 @@ namespace WEBAPI_Animal.Controllers.v1
             return db.map;
         }
         /// <summary>
-        /// 取得一筆動物醫院詳細位置資料
+        /// 取得單一動物醫院詳細位置資料
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
