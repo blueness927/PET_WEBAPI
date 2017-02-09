@@ -9,17 +9,19 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using WEBAPI_Animal.Models;
+using System.Web.Http.Cors;
 
 namespace WEBAPI_Animal.Controllers.v1
 {
     public class animalData_TypeController : BaseController
     {
-      
+
         /// <summary>
         /// 取得全部
         /// </summary>
         /// <returns></returns>
         // GET: api/animalData_Type
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IQueryable<animalData_Type> GetanimalData_Type()
         {
             return db.animalData_Type;
