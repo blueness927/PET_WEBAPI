@@ -34,7 +34,7 @@ namespace WEBAPI_Animal.Controllers.v1
         [ResponseType(typeof(MsgUser))]
         public IHttpActionResult GetMsgUser(string id)
         {
-            var msgUser = db.MsgUser.Where(x => x.msgTo_userID.Equals(id));
+            var msgUser = db.MsgUser.Where(x => x.msgTo_userID.Equals(id)).ToList();
             if (msgUser == null)
             {
                 return NotFound();
@@ -80,6 +80,48 @@ namespace WEBAPI_Animal.Controllers.v1
             db.SaveChanges();
 
             return Ok(msg);
+        }
+
+        /// <summary>
+        /// 用來修改已讀未讀
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        // PUT: api/Msgs/5
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutMsg(int id, Msg msg)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != msg.msgID)
+            {
+                return BadRequest();
+            }
+
+            db.Entry(msg).State = EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!MsgUserExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         protected override void Dispose(bool disposing)

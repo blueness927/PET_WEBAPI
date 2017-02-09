@@ -14,13 +14,20 @@ namespace WEBAPI_Animal.Controllers.v1
 {
     public class searchesController : BaseController
     {
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         // GET: api/searches
         public IQueryable<search> Getsearch()
         {
             return db.search;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/searches/5
         [ResponseType(typeof(search))]
         public IHttpActionResult Getsearch(int id)
@@ -33,7 +40,12 @@ namespace WEBAPI_Animal.Controllers.v1
 
             return Ok(search);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="search"></param>
+        /// <returns></returns>
         // PUT: api/searches/5
         [ResponseType(typeof(void))]
         public IHttpActionResult Putsearch(int id, search search)
@@ -68,7 +80,11 @@ namespace WEBAPI_Animal.Controllers.v1
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="search"></param>
+        /// <returns></returns>
         // POST: api/searches
         [ResponseType(typeof(search))]
         public IHttpActionResult Postsearch(search search)
@@ -83,7 +99,11 @@ namespace WEBAPI_Animal.Controllers.v1
 
             return CreatedAtRoute("DefaultApi", new { id = search.SearchID }, search);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE: api/searches/5
         [ResponseType(typeof(search))]
         public IHttpActionResult Deletesearch(int id)
