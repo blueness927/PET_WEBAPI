@@ -15,13 +15,20 @@ namespace WEBAPI_Animal.Controllers.v1
     public class mapsController : ApiController
     {
         private petstationEntities db = new petstationEntities();
-
+        /// <summary>
+        /// 取得全部動物醫院詳細位置資料
+        /// </summary>
+        /// <returns></returns>
         // GET: api/maps
         public IQueryable<map> Getmap()
         {
             return db.map;
         }
-
+        /// <summary>
+        /// 取得一筆動物醫院詳細位置資料
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/maps/5
         [ResponseType(typeof(map))]
         public IHttpActionResult Getmap(int id)
