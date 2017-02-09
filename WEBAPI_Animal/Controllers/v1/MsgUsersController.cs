@@ -34,7 +34,7 @@ namespace WEBAPI_Animal.Controllers.v1
         [ResponseType(typeof(MsgUser))]
         public IHttpActionResult GetMsgUser(string id)
         {
-            var msgUser = db.MsgUser.Where(x => x.msgTo_userID.Equals(id)).ToList();
+            var msgUser = db.MsgUser.Where(x => x.msgTo_userID.Equals(id));
             if (msgUser == null)
             {
                 return NotFound();
