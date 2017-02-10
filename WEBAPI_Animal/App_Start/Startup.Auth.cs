@@ -58,19 +58,19 @@ namespace WEBAPI_Animal
             //    consumerKey: "",
             //    consumerSecret: "");
 
-            //app.usefacebookauthentication(
-            //    appid: "2710370952435487",
-            //    appsecret: "68d6fd3c88655109693fb23aaca60408");
+            app.UseFacebookAuthentication(
+               appId: "208269922976554",
+               appSecret: "20dbe805f01805bf6287d926999da83f");
 
 
-            facebookAuthOptions = new FacebookAuthenticationOptions()
-            {
+            //facebookAuthOptions = new FacebookAuthenticationOptions()
+            //{
 
-                AppId = "208269922976554",
-                AppSecret = "20dbe805f01805bf6287d926999da83f",
-                Provider = new FacebookAuthProvider()
+            //    AppId = "208269922976554",
+            //    AppSecret = "20dbe805f01805bf6287d926999da83f",
+            //    Provider = new FacebookAuthProvider()
 
-            };
+            //};
             
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
