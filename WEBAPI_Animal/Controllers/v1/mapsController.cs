@@ -20,6 +20,7 @@ namespace WEBAPI_Animal.Controllers.v1
         /// </summary>
         /// <returns></returns>
         // GET: api/maps
+        [Queryable]
         public IQueryable<map> Getmap()
         {
             return db.map;

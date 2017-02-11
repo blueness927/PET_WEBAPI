@@ -17,10 +17,14 @@ namespace WEBAPI_Animal
 {
     public partial class Startup
     {
-        public static FacebookAuthenticationOptions facebookAuthOptions { get; private set; }
+
         public static OAuthAuthorizationServerOptions OAuthOptions { get; private set; }
 
+        public static Func<UserManager<ApplicationUser>> UserManagerFactory { get; set; }
+
         public static string PublicClientId { get; private set; }
+
+
 
         // 如需設定驗證的詳細資訊，請瀏覽 http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
@@ -58,20 +62,11 @@ namespace WEBAPI_Animal
             //    consumerKey: "",
             //    consumerSecret: "");
 
-            //app.usefacebookauthentication(
-            //    appid: "2710370952435487",
-            //    appsecret: "68d6fd3c88655109693fb23aaca60408");
+            app.UseFacebookAuthentication(
+            appId: "222558511547695",
+            appSecret: "0546799fdfbf65a33eadea610ef1f36e");
 
 
-            facebookAuthOptions = new FacebookAuthenticationOptions()
-            {
-
-                AppId = "208269922976554",
-                AppSecret = "20dbe805f01805bf6287d926999da83f",
-                Provider = new FacebookAuthProvider()
-
-            };
-            
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
             //    ClientId = "",

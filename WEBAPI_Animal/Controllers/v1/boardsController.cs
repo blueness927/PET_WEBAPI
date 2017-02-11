@@ -32,7 +32,7 @@ namespace WEBAPI_Animal.Controllers.v1
         [ResponseType(typeof(boardUser))]
         public IHttpActionResult GetboardUser(int id)
         {
-            var board = db.boardUser.Where(x => x.boardID == id).ToList();
+            var board = db.boardUser.Where(x =>x.board_animalID == id).ToList();
             if (board == null)
             {
                 return NotFound();

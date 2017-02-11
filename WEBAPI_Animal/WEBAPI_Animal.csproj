@@ -314,7 +314,6 @@
     <Compile Include="Models\MsgUser.cs">
       <DependentUpon>AnimalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ParsedExternalAccessToken.cs" />
     <Compile Include="Models\Partials\animalData_Condition.cs" />
     <Compile Include="Models\Partials\animalData.cs" />
     <Compile Include="Models\Partials\animalData_Pic.cs" />
@@ -348,7 +347,6 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
-    <Compile Include="Providers\FacebookAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -450,7 +448,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>61137</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:61137/</IISUrl>
+          <IISUrl>http://localhost:62000/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:62000/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
