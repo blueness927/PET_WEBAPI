@@ -221,7 +221,6 @@ namespace WEBAPI_Animal.Controllers
             return Ok();
         }
 
-        // GET api/Account/ExternalLogin
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalCookie)]
         [AllowAnonymous]
