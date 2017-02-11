@@ -14,12 +14,6 @@ namespace WEBAPI_Animal.Models
     
     public partial class board
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public board()
-        {
-            this.board_reply = new HashSet<board_reply>();
-        }
-    
         public int boardID { get; set; }
         public string boardTime { get; set; }
         public string board_userID { get; set; }
@@ -28,7 +22,5 @@ namespace WEBAPI_Animal.Models
     
         public virtual animalData animalData { get; set; }
         public virtual AspNetUsers AspNetUsers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<board_reply> board_reply { get; set; }
     }
 }

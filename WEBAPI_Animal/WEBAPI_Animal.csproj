@@ -286,9 +286,6 @@
     <Compile Include="Models\boardUser.cs">
       <DependentUpon>AnimalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\board_reply.cs">
-      <DependentUpon>AnimalModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>AnimalModel.tt</DependentUpon>
     </Compile>

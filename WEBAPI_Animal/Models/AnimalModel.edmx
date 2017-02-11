@@ -131,13 +131,6 @@
           <Property Name="board_animalID" Type="int" />
           <Property Name="boardContent" Type="nvarchar" MaxLength="200" />
         </EntityType>
-        <EntityType Name="board_reply">
-          <Key>
-            <PropertyRef Name="reply_boardID" />
-          </Key>
-          <Property Name="reply_boardID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="replyToboardID" Type="int" />
-        </EntityType>
         <EntityType Name="follow">
           <Key>
             <PropertyRef Name="followID" />
@@ -435,7 +428,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__board__board_ani__2BC97F7C">
+        <Association Name="FK__board__board_ani__1B5E0D89">
           <End Role="animalData" Type="Self.animalData" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -449,7 +442,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__board__board_use__2CBDA3B5">
+        <Association Name="FK__board__board_use__1C5231C2">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
           <End Role="board" Type="Self.board" Multiplicity="*" />
           <ReferentialConstraint>
@@ -461,21 +454,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__board_rep__reply__2F9A1060">
-          <End Role="board" Type="Self.board" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="board_reply" Type="Self.board_reply" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="board">
-              <PropertyRef Name="boardID" />
-            </Principal>
-            <Dependent Role="board_reply">
-              <PropertyRef Name="replyToboardID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__follow__follow_a__16CE6296">
+        <Association Name="FK__follow__follow_a__25DB9BFC">
           <End Role="animalData" Type="Self.animalData" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -489,7 +468,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__follow__follow_u__15DA3E5D">
+        <Association Name="FK__follow__follow_u__24E777C3">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -503,7 +482,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__forum__forum_use__4A8310C6">
+        <Association Name="FK__forum__forum_use__3AD6B8E2">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -517,7 +496,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__giveAnima__give___625A9A57">
+        <Association Name="FK__giveAnima__give___2C88998B">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -531,7 +510,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__giveAnima__give___634EBE90">
+        <Association Name="FK__giveAnima__give___2D7CBDC4">
           <End Role="animalData" Type="Self.animalData" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -545,7 +524,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Msg__msgTo_userI__7D0E9093">
+        <Association Name="FK__Msg__msgTo_userI__45544755">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -559,7 +538,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__pair__pair_anima__5F7E2DAC">
+        <Association Name="FK__pair__pair_anima__29AC2CE0">
           <End Role="animalData" Type="Self.animalData" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -573,7 +552,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__pair__pair_userI__5E8A0973">
+        <Association Name="FK__pair__pair_userI__28B808A7">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -615,7 +594,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__remind__remind_u__5224328E">
+        <Association Name="FK__remind__remind_u__3335971A">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -629,7 +608,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__search__Search_u__4F47C5E3">
+        <Association Name="FK__search__Search_u__30592A6F">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -711,7 +690,6 @@
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="board" EntityType="Self.board" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="board_reply" EntityType="Self.board_reply" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="follow" EntityType="Self.follow" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="forum" EntityType="Self.forum" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="forum_reply" EntityType="Self.forum_reply" Schema="dbo" store:Type="Tables" />
@@ -831,47 +809,43 @@
             <End Role="animalData" EntitySet="animalData" />
             <End Role="animalData_Condition" EntitySet="animalData_Condition" />
           </AssociationSet>
-          <AssociationSet Name="FK__board__board_ani__2BC97F7C" Association="Self.FK__board__board_ani__2BC97F7C">
+          <AssociationSet Name="FK__board__board_ani__1B5E0D89" Association="Self.FK__board__board_ani__1B5E0D89">
             <End Role="animalData" EntitySet="animalData" />
             <End Role="board" EntitySet="board" />
           </AssociationSet>
-          <AssociationSet Name="FK__board__board_use__2CBDA3B5" Association="Self.FK__board__board_use__2CBDA3B5">
+          <AssociationSet Name="FK__board__board_use__1C5231C2" Association="Self.FK__board__board_use__1C5231C2">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="board" EntitySet="board" />
           </AssociationSet>
-          <AssociationSet Name="FK__board_rep__reply__2F9A1060" Association="Self.FK__board_rep__reply__2F9A1060">
-            <End Role="board" EntitySet="board" />
-            <End Role="board_reply" EntitySet="board_reply" />
-          </AssociationSet>
-          <AssociationSet Name="FK__follow__follow_a__16CE6296" Association="Self.FK__follow__follow_a__16CE6296">
+          <AssociationSet Name="FK__follow__follow_a__25DB9BFC" Association="Self.FK__follow__follow_a__25DB9BFC">
             <End Role="animalData" EntitySet="animalData" />
             <End Role="follow" EntitySet="follow" />
           </AssociationSet>
-          <AssociationSet Name="FK__follow__follow_u__15DA3E5D" Association="Self.FK__follow__follow_u__15DA3E5D">
+          <AssociationSet Name="FK__follow__follow_u__24E777C3" Association="Self.FK__follow__follow_u__24E777C3">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="follow" EntitySet="follow" />
           </AssociationSet>
-          <AssociationSet Name="FK__forum__forum_use__4A8310C6" Association="Self.FK__forum__forum_use__4A8310C6">
+          <AssociationSet Name="FK__forum__forum_use__3AD6B8E2" Association="Self.FK__forum__forum_use__3AD6B8E2">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="forum" EntitySet="forum" />
           </AssociationSet>
-          <AssociationSet Name="FK__giveAnima__give___625A9A57" Association="Self.FK__giveAnima__give___625A9A57">
+          <AssociationSet Name="FK__giveAnima__give___2C88998B" Association="Self.FK__giveAnima__give___2C88998B">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="giveAnimal" EntitySet="giveAnimal" />
           </AssociationSet>
-          <AssociationSet Name="FK__giveAnima__give___634EBE90" Association="Self.FK__giveAnima__give___634EBE90">
+          <AssociationSet Name="FK__giveAnima__give___2D7CBDC4" Association="Self.FK__giveAnima__give___2D7CBDC4">
             <End Role="animalData" EntitySet="animalData" />
             <End Role="giveAnimal" EntitySet="giveAnimal" />
           </AssociationSet>
-          <AssociationSet Name="FK__Msg__msgTo_userI__7D0E9093" Association="Self.FK__Msg__msgTo_userI__7D0E9093">
+          <AssociationSet Name="FK__Msg__msgTo_userI__45544755" Association="Self.FK__Msg__msgTo_userI__45544755">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Msg" EntitySet="Msg" />
           </AssociationSet>
-          <AssociationSet Name="FK__pair__pair_anima__5F7E2DAC" Association="Self.FK__pair__pair_anima__5F7E2DAC">
+          <AssociationSet Name="FK__pair__pair_anima__29AC2CE0" Association="Self.FK__pair__pair_anima__29AC2CE0">
             <End Role="animalData" EntitySet="animalData" />
             <End Role="pair" EntitySet="pair" />
           </AssociationSet>
-          <AssociationSet Name="FK__pair__pair_userI__5E8A0973" Association="Self.FK__pair__pair_userI__5E8A0973">
+          <AssociationSet Name="FK__pair__pair_userI__28B808A7" Association="Self.FK__pair__pair_userI__28B808A7">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="pair" EntitySet="pair" />
           </AssociationSet>
@@ -883,11 +857,11 @@
             <End Role="todoData" EntitySet="todoData" />
             <End Role="petTodo" EntitySet="petTodo" />
           </AssociationSet>
-          <AssociationSet Name="FK__remind__remind_u__5224328E" Association="Self.FK__remind__remind_u__5224328E">
+          <AssociationSet Name="FK__remind__remind_u__3335971A" Association="Self.FK__remind__remind_u__3335971A">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="remind" EntitySet="remind" />
           </AssociationSet>
-          <AssociationSet Name="FK__search__Search_u__4F47C5E3" Association="Self.FK__search__Search_u__4F47C5E3">
+          <AssociationSet Name="FK__search__Search_u__30592A6F" Association="Self.FK__search__Search_u__30592A6F">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="search" EntitySet="search" />
           </AssociationSet>
@@ -1054,15 +1028,6 @@
           <Property Name="boardContent" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="animalData" Relationship="Self.FK__board__board_ani__40058253" FromRole="board" ToRole="animalData" />
           <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__board__board_use__40F9A68C" FromRole="board" ToRole="AspNetUsers" />
-          <NavigationProperty Name="board_reply" Relationship="Self.FK__board_rep__reply__6CD828CA" FromRole="board" ToRole="board_reply" />
-        </EntityType>
-        <EntityType Name="board_reply">
-          <Key>
-            <PropertyRef Name="reply_boardID" />
-          </Key>
-          <Property Name="reply_boardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="replyToboardID" Type="Int32" />
-          <NavigationProperty Name="board" Relationship="Self.FK__board_rep__reply__6CD828CA" FromRole="board_reply" ToRole="board" />
         </EntityType>
         <EntityType Name="forum">
           <Key>
@@ -1322,20 +1287,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__board_rep__reply__6CD828CA">
-          <End Role="board" Type="Self.board" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="board_reply" Type="Self.board_reply" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="board">
-              <PropertyRef Name="boardID" />
-            </Principal>
-            <Dependent Role="board_reply">
-              <PropertyRef Name="replyToboardID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__petTodo__petTodo__47A6A41B">
           <End Role="todoData" Type="Self.todoData" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -1373,7 +1324,6 @@
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
           <EntitySet Name="board" EntityType="Self.board" />
-          <EntitySet Name="board_reply" EntityType="Self.board_reply" />
           <EntitySet Name="forum" EntityType="Self.forum" />
           <EntitySet Name="forum_reply" EntityType="Self.forum_reply" />
           <EntitySet Name="map" EntityType="Self.map" />
@@ -1424,10 +1374,6 @@
           <AssociationSet Name="FK__search__Search_u__4F47C5E3" Association="Self.FK__search__Search_u__4F47C5E3">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="search" EntitySet="search" />
-          </AssociationSet>
-          <AssociationSet Name="FK__board_rep__reply__6CD828CA" Association="Self.FK__board_rep__reply__6CD828CA">
-            <End Role="board" EntitySet="board" />
-            <End Role="board_reply" EntitySet="board_reply" />
           </AssociationSet>
           <AssociationSet Name="FK__petTodo__petTodo__47A6A41B" Association="Self.FK__petTodo__petTodo__47A6A41B">
             <End Role="todoData" EntitySet="todoData" />
@@ -1766,14 +1712,6 @@
                 <ScalarProperty Name="board_userID" ColumnName="board_userID" />
                 <ScalarProperty Name="board_animalID" ColumnName="board_animalID" />
                 <ScalarProperty Name="boardContent" ColumnName="boardContent" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="board_reply">
-            <EntityTypeMapping TypeName="petstationModel.board_reply">
-              <MappingFragment StoreEntitySet="board_reply">
-                <ScalarProperty Name="reply_boardID" ColumnName="reply_boardID" />
-                <ScalarProperty Name="replyToboardID" ColumnName="replyToboardID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

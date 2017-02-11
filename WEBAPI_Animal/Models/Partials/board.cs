@@ -22,8 +22,7 @@ namespace WEBAPI_Animal.Models
             public virtual animalData animalData { get; set; }
             [JsonIgnore]
             public virtual AspNetUsers AspNetUsers { get; set; }
-            [JsonIgnore]
-            public virtual ICollection<board_reply> board_reply { get; set; }
+        
         }
     }
 }

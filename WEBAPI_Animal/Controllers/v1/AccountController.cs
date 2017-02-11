@@ -60,7 +60,9 @@ namespace WEBAPI_Animal.Controllers
 
             return new UserInfoViewModel
             {
+              
                 Email = User.Identity.GetUserName(),
+                UserId = User.Identity.GetUserId(),
                 HasRegistered = externalLogin == null,
                 LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
             };
@@ -328,7 +330,7 @@ namespace WEBAPI_Animal.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
