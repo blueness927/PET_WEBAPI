@@ -19,6 +19,7 @@ namespace WEBAPI_Animal.Controllers.v1
        /// </summary>
        /// <returns></returns>
         // GET: api/boards
+        [Queryable]
         public IQueryable<boardUser> GetboardUser()
         {
             return db.boardUser;
