@@ -68,6 +68,7 @@ namespace WEBAPI_Animal.Controllers.v1
         /// <param name="animalData"></param>
         /// <returns></returns>
         // PUT: api/animalDatas/5
+        [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutanimalData(int id, animalData animalData)
         {
@@ -107,6 +108,7 @@ namespace WEBAPI_Animal.Controllers.v1
         /// <param name="animalData"></param>
         /// <returns></returns>
         // POST: api/animalDatas
+        [Authorize]
         [ResponseType(typeof(animalData))]
         public IHttpActionResult PostanimalData(animalData animalData)
         {
@@ -126,6 +128,7 @@ namespace WEBAPI_Animal.Controllers.v1
         /// <param name="id"></param>
         /// <returns></returns>
         // DELETE: api/animalDatas/5
+        [Authorize]
         [ResponseType(typeof(animalData))]
         public IHttpActionResult DeleteanimalData(int id)
         {

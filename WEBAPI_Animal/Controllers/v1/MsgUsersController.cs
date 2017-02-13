@@ -48,6 +48,7 @@ namespace WEBAPI_Animal.Controllers.v1
         /// <param name="msg"></param>
         /// <returns></returns>
         // POST: api/MsgUsers
+        [Authorize]
         [ResponseType(typeof(Msg))]
         public IHttpActionResult PostMsg(Msg msg)
         {
@@ -67,6 +68,7 @@ namespace WEBAPI_Animal.Controllers.v1
         /// <param name="id"></param>
         /// <returns></returns>
         // DELETE: api/MsgUsers/5
+        [Authorize]
         [ResponseType(typeof(Msg))]
         public IHttpActionResult DeleteMsgUser(int id)
         {
@@ -89,6 +91,7 @@ namespace WEBAPI_Animal.Controllers.v1
         /// <param name="msg"></param>
         /// <returns></returns>
         // PUT: api/Msgs/5
+
         [ResponseType(typeof(void))]
         public IHttpActionResult PutMsg(int id, Msg msg)
         {

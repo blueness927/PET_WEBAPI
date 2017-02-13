@@ -14,11 +14,12 @@ namespace WEBAPI_Animal.Controllers.v1
 {
     public class boardsController : BaseController
     {
-       /// <summary>
-       /// 取得全部留言
-       /// </summary>
-       /// <returns></returns>
+        /// <summary>
+        /// 取得全部留言
+        /// </summary>
+        /// <returns></returns>
         // GET: api/boards
+        [Queryable]
         public IQueryable<boardUser> GetboardUser()
         {
             return db.boardUser;
@@ -81,6 +82,7 @@ namespace WEBAPI_Animal.Controllers.v1
         /// <param name="board"></param>
         /// <returns></returns>
         // POST: api/boards
+        [Authorize]
         [ResponseType(typeof(board))]
         public IHttpActionResult Postboard(board board)
         {
