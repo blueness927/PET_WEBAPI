@@ -28,11 +28,11 @@ namespace WEBAPI_Animal
             // Configure validation logic for passwords
             manager.PasswordValidator = new PasswordValidator
             {
-                RequiredLength = 6, //要求長度
-                RequireNonLetterOrDigit = true, //要數字
+                RequiredLength = 4, //要求長度
+                RequireNonLetterOrDigit = false, //要數字
                 RequireDigit = false, //要有特殊字元
                 RequireLowercase = false, //要有大寫
-                RequireUppercase = true,  //要有小寫
+                RequireUppercase = false,  //要有小寫
             };
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
