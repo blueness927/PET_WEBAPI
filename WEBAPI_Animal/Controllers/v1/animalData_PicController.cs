@@ -87,12 +87,13 @@ namespace WEBAPI_Animal.Controllers.v1
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-         /// <summary>
+        /// <summary>
         /// 新增資料時，animalPic_animalID需自行將ID帶入
         /// </summary>
         /// <param name="animalData_Pic"></param>
         /// <returns></returns>
         // POST: api/animalData_Pic
+        [Authorize]
         [ResponseType(typeof(animalData_Pic))]
         public IHttpActionResult PostanimalData_Pic(animalData_Pic animalData_Pic)
         {
@@ -115,6 +116,7 @@ namespace WEBAPI_Animal.Controllers.v1
         /// <param name="id"></param>
         /// <returns></returns>
         // DELETE: api/animalData_Pic/5
+        [Authorize]
         [ResponseType(typeof(animalData_Pic))]
         public IHttpActionResult DeleteanimalData_Pic(int id)
         {

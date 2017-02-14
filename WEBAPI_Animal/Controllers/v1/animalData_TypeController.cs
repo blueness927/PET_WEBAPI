@@ -45,13 +45,14 @@ namespace WEBAPI_Animal.Controllers.v1
             return Ok(animalData_Type);
         }
 
-       
+
         /// <summary>
         /// 新增單筆
         /// </summary>
         /// <param name="animalData_Type"></param>
         /// <returns></returns>
         // POST: api/animalData_Type
+        [Authorize]
         [ResponseType(typeof(animalData_Type))]
         public IHttpActionResult PostanimalData_Type(animalData_Type animalData_Type)
         {
@@ -72,6 +73,7 @@ namespace WEBAPI_Animal.Controllers.v1
         /// <param name="id"></param>
         /// <returns></returns>
         // DELETE: api/animalData_Type/5
+        [Authorize]
         [ResponseType(typeof(animalData_Type))]
         public IHttpActionResult DeleteanimalData_Type(int id)
         {

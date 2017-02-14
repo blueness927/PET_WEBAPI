@@ -50,6 +50,7 @@ namespace WEBAPI_Animal.Controllers.v1
         /// <param name="follow"></param>
         /// <returns></returns>
         // POST: api/follows
+        [Authorize]
         [ResponseType(typeof(follow))]
         public IHttpActionResult Postfollow(follow follow)
         {
@@ -85,6 +86,7 @@ namespace WEBAPI_Animal.Controllers.v1
         /// <param name="id"></param>
         /// <returns></returns>
         // DELETE: api/followsAni/5
+        [Authorize]
         [ResponseType(typeof(follow))]
         public IHttpActionResult Deletefollow(int id)
         {

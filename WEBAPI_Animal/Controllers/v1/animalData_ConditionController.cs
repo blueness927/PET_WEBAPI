@@ -27,6 +27,7 @@ namespace WEBAPI_Animal.Controllers.v1
         }
 
         // GET: api/animalData_Condition/5
+
         [ResponseType(typeof(animalData_Condition))]
         public IHttpActionResult GetanimalData_Condition(int id)
         {
@@ -40,6 +41,7 @@ namespace WEBAPI_Animal.Controllers.v1
         }
 
         // PUT: api/animalData_Condition/5
+        [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutanimalData_Condition(int id, animalData_Condition animalData_Condition)
         {
@@ -75,6 +77,7 @@ namespace WEBAPI_Animal.Controllers.v1
         }
 
         // POST: api/animalData_Condition
+        [Authorize]
         [ResponseType(typeof(animalData_Condition))]
         public IHttpActionResult PostanimalData_Condition(animalData_Condition animalData_Condition)
         {
@@ -90,6 +93,7 @@ namespace WEBAPI_Animal.Controllers.v1
         }
 
         // DELETE: api/animalData_Condition/5
+        [Authorize]
         [ResponseType(typeof(animalData_Condition))]
         public IHttpActionResult DeleteanimalData_Condition(int id)
         {
