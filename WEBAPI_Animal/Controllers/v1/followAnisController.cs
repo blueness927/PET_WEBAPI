@@ -50,7 +50,7 @@ namespace WEBAPI_Animal.Controllers.v1
         /// <param name="follow"></param>
         /// <returns></returns>
         // POST: api/follows
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(follow))]
         public IHttpActionResult Postfollow(follow follow)
         {
