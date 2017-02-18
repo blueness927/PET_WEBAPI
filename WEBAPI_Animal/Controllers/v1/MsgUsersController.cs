@@ -20,6 +20,7 @@ namespace WEBAPI_Animal.Controllers.v1
         /// </summary>
         /// <returns></returns>
         // GET: api/MsgUsers
+        [Queryable]
         public IQueryable<MsgUser> GetMsgUser()
         {
             return db.MsgUser;
@@ -31,6 +32,7 @@ namespace WEBAPI_Animal.Controllers.v1
         /// <param name="id"></param>
         /// <returns></returns>
         // GET: api/MsgUsers/ToID
+        [Queryable]
         [ResponseType(typeof(MsgUser))]
         public IHttpActionResult GetMsgUser(string id)
         {
