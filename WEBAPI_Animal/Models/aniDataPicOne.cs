@@ -24,5 +24,8 @@ namespace WEBAPI_Animal.Models
         public Nullable<int> animalAge { get; set; }
         public string animalOwner_userID { get; set; }
         public string animalPicAddress { get; set; }
+        public string animalDate { get; set; }
+        public string animalGetter_userID { get; set; }
+        public string animalAdopted { get; set; }
     }
 }
